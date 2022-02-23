@@ -15,7 +15,7 @@ function useInputValue() {
 }
 
 function RegLog() {
-  const ulr = "https://localhost:44366/api/";
+  const ulr = "http://localhost:5000/api/";
   const data = { name: useInputValue(''), email: useInputValue(''), password: useInputValue(''), repassword: useInputValue('') };
   const [part, setPart] = useState("register");
 
@@ -34,7 +34,6 @@ function RegLog() {
     const dataSend = { Name: data.name.value(), Email: data.email.value(), Password: data.password.value() };
 
     if (data.password.value() === data.repassword.value()) {
-      console.log(dataSend);
       fetch(ulr + "Account/register", {
         method: 'POST',
         body: JSON.stringify(dataSend),
